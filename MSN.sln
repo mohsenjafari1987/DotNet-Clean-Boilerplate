@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSN.app", "MSN.app\MSN.app.csproj", "{1921FA10-5BC7-4B21-84C6-BFBED4FF5D45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSN.Domain", "MSN.Domain\MSN.Domain.csproj", "{A3509109-9641-446F-8D04-92DE03BF3875}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSN.Infrastructure", "MSN.Infrastructure\MSN.Infrastructure.csproj", "{B916F1D6-33CC-440A-B70A-12F054DD2975}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSN.Contract", "MSN.Contract\MSN.Contract.csproj", "{5121BB90-B68F-4966-BD37-9F563952600D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSN.Application", "MSN.Application\MSN.Application.csproj", "{CA55D159-D9B7-4C37-AA0C-E9135702E22A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSN.Framework", "MSN.Framework\MSN.Framework.csproj", "{ECD899DA-8757-484E-9F44-249665BEADBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSN.Test", "MSN.Test\MSN.Test.csproj", "{29ABEB92-6AB0-4717-A94F-465D3D834F4C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1921FA10-5BC7-4B21-84C6-BFBED4FF5D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1921FA10-5BC7-4B21-84C6-BFBED4FF5D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1921FA10-5BC7-4B21-84C6-BFBED4FF5D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1921FA10-5BC7-4B21-84C6-BFBED4FF5D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3509109-9641-446F-8D04-92DE03BF3875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3509109-9641-446F-8D04-92DE03BF3875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3509109-9641-446F-8D04-92DE03BF3875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3509109-9641-446F-8D04-92DE03BF3875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B916F1D6-33CC-440A-B70A-12F054DD2975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B916F1D6-33CC-440A-B70A-12F054DD2975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B916F1D6-33CC-440A-B70A-12F054DD2975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B916F1D6-33CC-440A-B70A-12F054DD2975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5121BB90-B68F-4966-BD37-9F563952600D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5121BB90-B68F-4966-BD37-9F563952600D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5121BB90-B68F-4966-BD37-9F563952600D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5121BB90-B68F-4966-BD37-9F563952600D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA55D159-D9B7-4C37-AA0C-E9135702E22A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA55D159-D9B7-4C37-AA0C-E9135702E22A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA55D159-D9B7-4C37-AA0C-E9135702E22A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA55D159-D9B7-4C37-AA0C-E9135702E22A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECD899DA-8757-484E-9F44-249665BEADBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECD899DA-8757-484E-9F44-249665BEADBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECD899DA-8757-484E-9F44-249665BEADBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECD899DA-8757-484E-9F44-249665BEADBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29ABEB92-6AB0-4717-A94F-465D3D834F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29ABEB92-6AB0-4717-A94F-465D3D834F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29ABEB92-6AB0-4717-A94F-465D3D834F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29ABEB92-6AB0-4717-A94F-465D3D834F4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8258B7E1-DE7D-4C47-A228-4D24B36E74EB}
+	EndGlobalSection
+EndGlobal

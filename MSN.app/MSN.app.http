@@ -1,0 +1,6 @@
+@MSN.app_HostAddress = http://localhost:5037
+
+GET {{MSN.app_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
