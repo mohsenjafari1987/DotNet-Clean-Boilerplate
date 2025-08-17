@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MSN.Domain.Models.Users
+namespace MSN.Domain.Domains.Catalog
 {
-    internal class IUserRepository
+    internal class SelectedOption
     {
     }
 }

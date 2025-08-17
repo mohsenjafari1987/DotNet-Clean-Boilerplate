@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MSN.Domain.Models.Resources
+namespace MSN.Domain.Domains.Catalog
 {
-    internal class IResourceRepository
+    internal class OptionDefinition
     {
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSN.app", "MSN.app\MSN.app.csproj", "{1921FA10-5BC7-4B21-84C6-BFBED4FF5D45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSN.API", "MSN.app\MSN.API.csproj", "{1921FA10-5BC7-4B21-84C6-BFBED4FF5D45}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSN.Domain", "MSN.Domain\MSN.Domain.csproj", "{A3509109-9641-446F-8D04-92DE03BF3875}"
 EndProject
@@ -14,8 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSN.Application", "MSN.Application\MSN.Application.csproj", "{CA55D159-D9B7-4C37-AA0C-E9135702E22A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSN.Framework", "MSN.Framework\MSN.Framework.csproj", "{ECD899DA-8757-484E-9F44-249665BEADBA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSN.Test", "MSN.Test\MSN.Test.csproj", "{29ABEB92-6AB0-4717-A94F-465D3D834F4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +45,6 @@ Global
 		{ECD899DA-8757-484E-9F44-249665BEADBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECD899DA-8757-484E-9F44-249665BEADBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECD899DA-8757-484E-9F44-249665BEADBA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29ABEB92-6AB0-4717-A94F-465D3D834F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29ABEB92-6AB0-4717-A94F-465D3D834F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29ABEB92-6AB0-4717-A94F-465D3D834F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29ABEB92-6AB0-4717-A94F-465D3D834F4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
