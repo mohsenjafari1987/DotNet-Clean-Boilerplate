@@ -1,4 +1,6 @@
-namespace MSN.Domain.Domains.Catalog
+using MSN.Domain.Domains.Catalog.Aggregates;
+
+namespace MSN.Domain.Domains.Catalog.Repositories
 {
     public interface IProductRepository
     {

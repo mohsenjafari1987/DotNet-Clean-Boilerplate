@@ -1,7 +1,7 @@
 using MSN.Domain.Exceptions;
 using MSN.Framework.BaseModel;
 
-namespace MSN.Domain.Domains.Catalog
+namespace MSN.Domain.Domains.Catalog.Aggregates
 {
     public class Product : BaseModel
     {
