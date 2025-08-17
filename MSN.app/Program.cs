@@ -1,9 +1,7 @@
-﻿using MSN.app.Endpoints;
-using MSN.app.Endpoints.Processes;
-using MSN.Application;
+﻿using MSN.Application;
 using MSN.Infrastructure;
 
-namespace MSN.app
+namespace MSN.API
 {
     public class Program
     {
@@ -49,10 +47,6 @@ namespace MSN.app
             app.UseAuthorization();
 
             app.MapGet("/", () => "API is running ✅");
-
-            app.MapUpdateProcessEndpoint();
-            app.MapGetProcessesEndpoint();
-            app.MapGetProcessEndpoint();
 
             await app.RunAsync();
         }

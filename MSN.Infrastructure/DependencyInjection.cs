@@ -1,11 +1,9 @@
-﻿using MSN.Domain.Interfaces;
-using MSN.Domain.Models.Processes;
-using MSN.Infrastructure.Persistence;
-using MSN.Infrastructure.Repositories;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MSN.Domain.Interfaces;
+using MSN.Infrastructure.Persistence;
 
 namespace MSN.Infrastructure
 {
@@ -16,7 +14,7 @@ namespace MSN.Infrastructure
             services.AddDbContext<MSNDbContext>(options =>
                 options.UseNpgsql(config.GetConnectionString("DefaultConnection")));
 
-            services.AddScoped<IProcessRepository, ProcessRepository>();
+            //services.AddScoped<IProcessRepository, ProcessRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;

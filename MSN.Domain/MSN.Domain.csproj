@@ -10,4 +10,9 @@
     <ProjectReference Include="..\MSN.Framework\MSN.Framework.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Domains\Catalog\Policies\" />
+    <Folder Include="Domains\Catalog\ValueObjects\" />
+  </ItemGroup>
+
 </Project>

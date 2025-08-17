@@ -25,4 +25,8 @@
     <ProjectReference Include="..\MSN.Infrastructure\MSN.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Endpoints\" />
+  </ItemGroup>
+
 </Project>
