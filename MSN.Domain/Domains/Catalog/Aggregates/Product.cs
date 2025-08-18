@@ -1,63 +1,54 @@
-using MSN.Domain.Exceptions;
-using MSN.Framework.BaseModel;
+using MSN.Domain.Domains.Catalog.ValueObjects;
+using MSN.Domain.Domains.Shared.ValueObjects;
 
 namespace MSN.Domain.Domains.Catalog.Aggregates
 {
-    public class Product : BaseModel
+    public sealed class Product
     {
-        public decimal Price { get; private set; }
-        public string? Description { get; private set; }
-        public int Stock { get; private set; }
-        public int CreatedById { get; private set; }
+        public Guid Id { get; private set; } = Guid.NewGuid();
+        public string Name { get; private set; }
+        private readonly List<OptionDefinition> _options = new();
+        private readonly List<ProductVariant> _variants = new();
+
+        public IReadOnlyCollection<OptionDefinition> OptionDefinitions => _options;
+        public IReadOnlyCollection<ProductVariant> Variants => _variants;
+
+        private Product() { }
+        public Product(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(nameof(name));
+            Name = name.Trim();
+        }
         
-
-        public static Product Create(int id, string title, decimal price, int stock, string? description)
+        public OptionDefinition DefineOption(string name, bool required, IEnumerable<string> allowedValues)
         {
-            if (price < 0)
-                throw new DomainException("Price cannot be negative.");
-            
-            if (stock < 0)
-                throw new DomainException("Stock cannot be negative.");
+            var def = new OptionDefinition(Id, name, required, allowedValues);
+            _options.Add(def);
+            return def;
+        }
 
-            var product = new Product
+        public ProductVariant AddVariant(Sku sku, Money price, int stock, IEnumerable<(Guid optionDefId, string value)> selections)
+        {
+            var selected = selections.Select(s => new SelectedOption(s.optionDefId, s.value)).ToList();
+
+            if (selected.GroupBy(x => x.OptionDefinitionId).Any(g => g.Count() > 1))
+                throw new InvalidOperationException("Duplicate option per definition.");
+
+            foreach (var def in _options)
             {
-                Id = id,
-                Title = title,
-                Price = price,
-                Stock = stock,
-                Description = description,
-            };
+                var pick = selected.FirstOrDefault(x => x.OptionDefinitionId == def.Id);
+                if (def.IsRequired && pick is null)
+                    throw new InvalidOperationException($"Missing required option: {def.Name}");
+                if (pick is not null && !def.IsAllowed(pick.Value))
+                    throw new InvalidOperationException($"Invalid value '{pick.Value}' for option '{def.Name}'");
+            }
 
-            return product;
-        }
+            if (_variants.Any(v => v.Sku.Equals(sku)))
+                throw new InvalidOperationException($"SKU '{sku}' already exists.");
 
-        public void UpdatePrice(decimal newPrice)
-        {
-            if (newPrice < 0)
-                throw new DomainException("Price cannot be negative.");
-
-            Price = newPrice;
-        }
-
-        public void UpdateStock(int quantity)
-        {
-            if (Stock + quantity < 0)
-                throw new DomainException("Cannot reduce stock below zero.");
-
-            Stock += quantity;
-        }
-
-        public void UpdateDescription(string? description)
-        {
-            Description = description;
-        }
-
-        public void ChangeTitle(string title)
-        {
-            if (string.IsNullOrWhiteSpace(title))
-                throw new DomainException("Title cannot be null or empty.");
-
-            Title = title;
+            var variant = new ProductVariant(Id, sku, price, stock, selected);
+            _variants.Add(variant);
+            return variant;
         }
     }
 }

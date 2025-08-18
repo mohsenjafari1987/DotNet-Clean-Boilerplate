@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Folder Include="Domains\Catalog\Policies\" />
-    <Folder Include="Domains\Catalog\ValueObjects\" />
   </ItemGroup>
 
 </Project>

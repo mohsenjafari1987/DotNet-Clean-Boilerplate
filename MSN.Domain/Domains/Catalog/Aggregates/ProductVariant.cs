@@ -1,51 +1,39 @@
-using MSN.Framework.BaseModel;
+using MSN.Domain.Domains.Catalog.ValueObjects;
+using MSN.Domain.Domains.Shared.ValueObjects;
 
 namespace MSN.Domain.Domains.Catalog.Aggregates
 {
-    public class ProductVariant : BaseModel
+    public sealed class ProductVariant
     {
-        public int ProductId { get; private set; }
-        public Product Product { get; private set; } = default!;
-        public decimal PriceDelta { get; private set; }
-        public int StockDelta { get; private set; }
-        public string? Description { get; private set; }
+        public Guid Id { get; private set; } = Guid.NewGuid();
+        public Guid ProductId { get; private set; }
+        public Sku Sku { get; private set; }
+        public Money Price { get; private set; }
+        public int Stock { get; private set; }
 
-        public static ProductVariant Create(int id, string title, int productId, decimal priceDelta, int stockDelta, string? description, Product product)
+        private readonly List<SelectedOption> _options = new();
+        public IReadOnlyCollection<SelectedOption> SelectedOptions => _options;
+
+        private ProductVariant() { }
+        internal ProductVariant(Guid productId, Sku sku, Money price, int stock,
+                                IEnumerable<SelectedOption> options)
         {
-            if (priceDelta < 0)
-                throw new ArgumentException("Price delta cannot be negative.");
-            if (stockDelta < 0)
-                throw new ArgumentException("Stock delta cannot be negative.");
+            if (productId == Guid.Empty) throw new ArgumentException(nameof(productId));
+            if (stock < 0) throw new ArgumentOutOfRangeException(nameof(stock));
 
-            return new ProductVariant
-            {
-                Id = id,
-                Title = title,
-                ProductId = productId,
-                PriceDelta = priceDelta,
-                StockDelta = stockDelta,
-                Description = description,
-                Product = product
-            };
+            ProductId = productId; Sku = sku; Price = price; Stock = stock;
+            var list = (options ?? Enumerable.Empty<SelectedOption>()).ToList();
+
+            if (list.GroupBy(o => o.OptionDefinitionId).Any(g => g.Count() > 1))
+                throw new InvalidOperationException("Duplicate option per definition.");
+            _options.AddRange(list);
         }
 
-        public void UpdatePriceDelta(decimal newDelta)
+        public void AdjustStock(int delta)
         {
-            if (newDelta < 0)
-                throw new ArgumentException("Price delta cannot be negative.");
-            PriceDelta = newDelta;
-        }
-
-        public void UpdateStockDelta(int newDelta)
-        {
-            if (newDelta < 0)
-                throw new ArgumentException("Stock delta cannot be negative.");
-            StockDelta = newDelta;
-        }
-
-        public void UpdateDescription(string? description)
-        {
-            Description = description;
+            var next = Stock + delta;
+            if (next < 0) throw new InvalidOperationException("Stock cannot be negative.");
+            Stock = next;
         }
     }
 }
